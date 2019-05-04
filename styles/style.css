@@ -1,17 +1,33 @@
 body {
     text-align: center;
+    background-color: #333;
 }
 
 #board {
-    background-color: yellow;
+    background-color: rgb(100, 50, 90);
     display: inline-block;
+    margin: 20px;
+    border: pink 3px solid;
+    padding: 8px;
 }
 
 .col {
     height: 60px;
     width: 60px;
     background-color: black;
-    border: 2px solid red;
+    border: 1px solid red;
     display: inline-block;
     margin: 1px;
+}
+
+.row {
+    height: 66px;
+}
+
+.hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.obstacle {
+    background-color: brown;
 }
