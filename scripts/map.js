@@ -26,11 +26,11 @@ class Grid {
     setupEventListeners() {
         const $board = $(this.selector);
 
-        $board.on('mouseenter', '.col1.empty', function() {
+        $board.on('mouseenter', '.col1', function() {
             $(this).addClass('hover');
         });
 
-        $board.on('mouseleave', '.col1.empty', function() {
+        $board.on('mouseleave', '.col1', function() {
             $(this).removeClass('hover');
         });
     }

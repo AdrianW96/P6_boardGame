@@ -14,8 +14,7 @@ class SpecialBlocks {
             const randomNum = Math.floor(Math.random() * allBlocks.length);
             const currentCell = allBlocks.eq(randomNum);
 
-            currentCell.addClass('obstacleCell');
-            currentCell.removeClass('empty cell');
+            currentCell.addClass('obstacleCell').removeClass('empty cell');
 
             // delete the just populated cell from the array so it can't be multi-populated
             allBlocks.splice(randomNum, 1);
@@ -32,10 +31,15 @@ class SpecialBlocks {
             const randomNum = Math.floor(Math.random() * allBlocks.length);
             const currentCell = allBlocks.eq(randomNum);
 
-            currentCell.addClass('weaponDisplayFix').addClass(weapons[i]);
+            currentCell
+                .addClass('weaponDisplayFix')
+                .addClass(weapons[i])
+                .removeClass('empty cell');
 
             // add img to weapon cell
-            const img = $('<img>').attr('src', weaponPics[i]);
+            const img = $('<img>')
+                .attr('src', weaponPics[i])
+                .addClass('weaponPic');
             img.appendTo(currentCell);
 
             // delete the just populated cell from the array so it can't be multi-populated

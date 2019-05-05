@@ -13,7 +13,53 @@ body {
     width: 810px;
 }
 
-img {
+.player-1 {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+    top: 300px;
+    position: absolute;
+    right: 14px;
+    border: 3px solid green;
+}
+
+.playerImage {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.player1icon {
+    background-image: url('/images/player1icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.player2icon {
+    background-image: url('/images/player2icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.player-2 {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+    top: 300px;
+    position: absolute;
+    border: 3px solid green;
+}
+
+.player1header {
+    position: relative;
+    bottom: 50px;
+}
+
+.player2header {
+    position: relative;
+    bottom: 50px;
+}
+
+.weaponPic {
     width: 50px;
     height: 50px;
     position: relative;
@@ -38,13 +84,9 @@ img {
 }
 
 .hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .obstacleCell {
     background-color: brown;
-}
-
-h1 {
-    font-size: 3em;
 }

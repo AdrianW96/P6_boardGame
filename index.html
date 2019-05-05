@@ -12,15 +12,32 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="/scripts/map.js"></script>
         <script src="/scripts/specialSpots.js"></script>
+        <script src="/scripts/players.js"></script>
         <script src="/scripts/main.js"></script>
         <title>My Game</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-sm-1">
+                    <div class="player-1">
+                        <h2 class="player1header">Player 1</h2>
+                        <img src="/images/player1.png" class="playerImage" />
+                        <p class="healthPara mt-3 text-danger"><span class="health">100</span> Health</p>
+                        <p class="attackPara text-danger"><span class="attack">10</span> Attack</p>
+                    </div>
+                </div>
+                <div class="col-sm-10">
                     <h1 class="display-3 mt-5">My Game</h1>
                     <div id="board" class="mt-5"></div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="player-2">
+                        <h2 class="player2header">Player 2</h2>
+                        <img src="/images/player2.png" class="playerImage" />
+                        <p class="healthPara mt-3 text-danger"><span class="health">100</span> Health</p>
+                        <p class="attackPara text-danger"><span class="attack">10</span> Attack</p>
+                    </div>
                 </div>
             </div>
         </div>
