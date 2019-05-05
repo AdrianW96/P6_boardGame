@@ -10,10 +10,10 @@ class Grid {
     createGrid() {
         const $board = $(this.selector);
         for (let row = 0; row < this.ROWS; row++) {
-            const $row = $('<div>').addClass('row');
+            const $row = $('<div>').addClass('row1');
             for (let col = 0; col < this.COLS; col++) {
                 const $cell = $('<div>')
-                    .addClass('col cell empty')
+                    .addClass('col1 cell empty')
                     .attr('data-col', col)
                     .attr('data-row', row)
                     .attr('id', col + '-' + row);
@@ -26,11 +26,11 @@ class Grid {
     setupEventListeners() {
         const $board = $(this.selector);
 
-        $board.on('mouseenter', '.col.empty', function() {
+        $board.on('mouseenter', '.col1.empty', function() {
             $(this).addClass('hover');
         });
 
-        $board.on('mouseleave', '.col.empty', function() {
+        $board.on('mouseleave', '.col1.empty', function() {
             $(this).removeClass('hover');
         });
     }

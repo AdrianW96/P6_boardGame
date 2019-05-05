@@ -1,26 +1,39 @@
 body {
     text-align: center;
-    background-color: #333;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.6)), url('/images/background.jpg');
+    font-family: 'PT Mono', monospace;
 }
 
 #board {
     background-color: rgb(100, 50, 90);
     display: inline-block;
-    margin: 20px;
     border: pink 3px solid;
-    padding: 8px;
+    padding: 6px;
+    height: 810px;
+    width: 810px;
 }
 
-.col {
+img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.weaponDisplayFix {
+    position: relative;
+    bottom: 33px;
+}
+
+.col1 {
     height: 60px;
     width: 60px;
     background-color: black;
     border: 1px solid red;
     display: inline-block;
-    margin: 1px;
+    margin: 3px;
 }
 
-.row {
+.row1 {
     height: 66px;
 }
 
@@ -28,6 +41,10 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.obstacle {
+.obstacleCell {
     background-color: brown;
+}
+
+h1 {
+    font-size: 3em;
 }
