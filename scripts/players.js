@@ -9,9 +9,26 @@ class Player {
     placeOnBoard() {
         // Get all free cells
         let allBlocks = $('.cell');
+        let $randomFreeCell;
 
-        //TODO do while loop, check if there's no other player nearby, else do again
-        const randomFreeCell = allBlocks.eq(Math.floor(Math.random() * allBlocks.length));
-        randomFreeCell.addClass(this.name).removeClass('empty cell');
+        do {
+            $randomFreeCell = allBlocks.eq(Math.floor(Math.random() * allBlocks.length));
+            const xAxisOfCurCell = $randomFreeCell.data('col');
+            const yAxisOfCurCell = $randomFreeCell.data('row');
+            var checkPlayerAround = checkAdjacent(xAxisOfCurCell, yAxisOfCurCell);
+        } while (checkPlayerAround === false);
+
+        $randomFreeCell.addClass(this.name).removeClass('empty cell');
+
+        function checkAdjacent(x, y) {
+            var $ringOne = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
+            for (let i = 0; i < $ringOne.length; i++) {
+                if ($ringOne[i].hasClass('player1icon') || $ringOne[i].hasClass('player2icon')) {
+                    return false;
+                } else {
+                    continue;
+                }
+            }
+        }
     }
 }
