@@ -33,5 +33,7 @@ class Grid {
         $board.on('mouseleave', '.col1', function() {
             $(this).removeClass('hover');
         });
+
+        $board.on('click', '.viable', move);
     }
 }

@@ -84,9 +84,13 @@ body {
 }
 
 .hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 200, 0.3);
 }
 
 .obstacleCell {
     background-color: brown;
+}
+
+.viable {
+    background-color: rgba(0, 0, 0, 0.6);
 }
