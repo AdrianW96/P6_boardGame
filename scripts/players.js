@@ -45,11 +45,42 @@ class Player {
         // Store current position for faster access
         const x = this.location.x;
         const y = this.location.y;
-        var $threeInAllDirections = [$(`#${x + 1}-${y}`), $(`#${x + 2}-${y}`), $(`#${x + 3}-${y}`), $(`#${x - 1}-${y}`), $(`#${x - 2}-${y}`), $(`#${x - 3}-${y}`), $(`#${x}-${y + 1}`), $(`#${x}-${y + 2}`), $(`#${x}-${y + 3}`), $(`#${x}-${y - 1}`), $(`#${x}-${y - 2}`), $(`#${x}-${y - 3}`)];
-        $threeInAllDirections.forEach(function(obj) {
-            if (!obj.hasClass('obstacleCell')) {
-                obj.addClass('viable');
+
+        var $threeTop = [$(`#${x}-${y + 1}`), $(`#${x}-${y + 2}`), $(`#${x}-${y + 3}`)];
+        var $threeRight = [$(`#${x + 1}-${y}`), $(`#${x + 2}-${y}`), $(`#${x + 3}-${y}`)];
+        var $threeBottom = [$(`#${x}-${y - 1}`), $(`#${x}-${y - 2}`), $(`#${x}-${y - 3}`)];
+        var $threeLeft = [$(`#${x - 1}-${y}`), $(`#${x - 2}-${y}`), $(`#${x - 3}-${y}`)];
+
+        for (var i = 0; i < $threeTop.length; i++) {
+            if ($threeTop[i].hasClass('obstacleCell') || $threeTop[i].hasClass(inactivePlayer.name)) {
+                break;
+            } else {
+                $threeTop[i].addClass('viable');
             }
-        });
+        }
+
+        for (var i = 0; i < $threeRight.length; i++) {
+            if ($threeRight[i].hasClass('obstacleCell') || $threeRight[i].hasClass(inactivePlayer.name)) {
+                break;
+            } else {
+                $threeRight[i].addClass('viable');
+            }
+        }
+
+        for (var i = 0; i < $threeBottom.length; i++) {
+            if ($threeBottom[i].hasClass('obstacleCell') || $threeBottom[i].hasClass(inactivePlayer.name)) {
+                break;
+            } else {
+                $threeBottom[i].addClass('viable');
+            }
+        }
+
+        for (var i = 0; i < $threeLeft.length; i++) {
+            if ($threeLeft[i].hasClass('obstacleCell') || $threeLeft[i].hasClass(inactivePlayer.name)) {
+                break;
+            } else {
+                $threeLeft[i].addClass('viable');
+            }
+        }
     }
 }
