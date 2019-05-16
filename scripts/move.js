@@ -1,3 +1,4 @@
+// called when activePlayer clicks on a viable field
 function move() {
     $('.col1').removeClass('viable');
     // Get the clicked cell values
@@ -15,6 +16,28 @@ function move() {
     // Add Player to new Cell
     $(clickedCell).addClass(activePlayer.name);
     $(clickedCell).removeClass('cell empty');
+
+    const hasWeapon = $(clickedCell).hasClass('weaponDisplayFix');
+    // check for weapon on clicked cell
+    if (hasWeapon === true) {
+        if ($(clickedCell).hasClass('weapon1')) {
+            activePlayer.attack = weapon1.power;
+            $(clickedCell).removeClass('weapon1');
+        } else if ($(clickedCell).hasClass('weapon2')) {
+            activePlayer.attack = weapon2.power;
+            $(clickedCell).removeClass('weapon2');
+        } else if ($(clickedCell).hasClass('weapon3')) {
+            activePlayer.attack = weapon3.power;
+            $(clickedCell).removeClass('weapon3');
+        } else if ($(clickedCell).hasClass('weapon4')) {
+            activePlayer.attack = weapon4.power;
+            $(clickedCell).removeClass('weapon4');
+        }
+        $(clickedCell)
+            .removeClass('weaponDisplayFix')
+            .empty();
+        activePlayer.updateAttack();
+    }
 
     changePlayer();
     activePlayer.setViableMoveOptions();

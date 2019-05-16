@@ -83,4 +83,12 @@ class Player {
             }
         }
     }
+
+    updateAttack() {
+        if (player1 === activePlayer) {
+            $('.attack1').text(this.attack);
+        } else if (player2 === activePlayer) {
+            $('.attack2').text(this.attack);
+        }
+    }
 }
