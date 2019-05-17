@@ -1,3 +1,5 @@
+let weapons = ['weapon1', 'weapon2', 'weapon3', 'weapon4'];
+let weaponPics = ['images/cheese.png', 'images/dragonglass.png', 'images/knowledge.png', 'images/stoneOfWisdom.png'];
 class SpecialBlocks {
     constructor(numOfObstacles, numOfWeapons) {
         this.numOfObstacles = numOfObstacles;
@@ -22,9 +24,6 @@ class SpecialBlocks {
 
         // Update empty cells variable after obstacles have been generated
         allBlocks = $('.cell');
-
-        let weapons = ['weapon1', 'weapon2', 'weapon3', 'weapon4'];
-        let weaponPics = ['images/cheese.png', 'images/dragonglass.png', 'images/knowledge.png', 'images/stoneOfWisdom.png'];
 
         // Generate weapons
         for (let i = 0; i < this.numOfWeapons; i++) {

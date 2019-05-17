@@ -15,7 +15,7 @@ body {
 
 .player-1 {
     width: 300px;
-    height: 400px;
+    height: 500px;
     background-color: black;
     top: 300px;
     position: absolute;
@@ -42,7 +42,7 @@ body {
 
 .player-2 {
     width: 300px;
-    height: 400px;
+    height: 500px;
     background-color: black;
     top: 300px;
     position: absolute;

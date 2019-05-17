@@ -22,21 +22,37 @@ function move() {
     if (hasWeapon === true) {
         if ($(clickedCell).hasClass('weapon1')) {
             activePlayer.attack = weapon1.power;
+            $(clickedCell).empty();
+            dropOldWeapon(clickedCell);
+            activePlayer.equippedWeapon = weapon1.name;
             $(clickedCell).removeClass('weapon1');
         } else if ($(clickedCell).hasClass('weapon2')) {
             activePlayer.attack = weapon2.power;
+            $(clickedCell).empty();
+            dropOldWeapon(clickedCell);
+            activePlayer.equippedWeapon = weapon2.name;
             $(clickedCell).removeClass('weapon2');
         } else if ($(clickedCell).hasClass('weapon3')) {
             activePlayer.attack = weapon3.power;
+            $(clickedCell).empty();
+            dropOldWeapon(clickedCell);
+            activePlayer.equippedWeapon = weapon3.name;
             $(clickedCell).removeClass('weapon3');
         } else if ($(clickedCell).hasClass('weapon4')) {
             activePlayer.attack = weapon4.power;
+            $(clickedCell).empty();
+            dropOldWeapon(clickedCell);
+            activePlayer.equippedWeapon = weapon4.name;
             $(clickedCell).removeClass('weapon4');
+        } else if ($(clickedCell).hasClass('weapon0')) {
+            activePlayer.attack = defaultWeapon.power;
+            $(clickedCell).empty();
+            dropOldWeapon(clickedCell);
+            activePlayer.equippedWeapon = defaultWeapon.name;
+            $(clickedCell).removeClass('weapon0');
         }
-        $(clickedCell)
-            .removeClass('weaponDisplayFix')
-            .empty();
         activePlayer.updateAttack();
+        activePlayer.showWeapon();
     }
 
     changePlayer();
@@ -50,5 +66,40 @@ function changePlayer() {
     } else {
         activePlayer = player1;
         inactivePlayer = player2;
+    }
+}
+
+function dropOldWeapon(clickedCell) {
+    switch (activePlayer.equippedWeapon) {
+        case 'Rusty Sword':
+            $(clickedCell).addClass(defaultWeapon.class);
+            const img1 = $('<img>');
+            img1.attr('src', 'images/default.png').addClass('weaponPic');
+            img1.appendTo(clickedCell);
+            break;
+        case 'Cheese':
+            $(clickedCell).addClass(weapon1.class);
+            const img2 = $('<img>');
+            img2.attr('src', weaponPics[0]).addClass('weaponPic');
+            img2.appendTo(clickedCell);
+            break;
+        case 'Dagger':
+            $(clickedCell).addClass(weapon2.class);
+            const img3 = $('<img>');
+            img3.attr('src', weaponPics[1]).addClass('weaponPic');
+            img3.appendTo(clickedCell);
+            break;
+        case 'Book':
+            $(clickedCell).addClass(weapon3.class);
+            const img4 = $('<img>');
+            img4.attr('src', weaponPics[2]).addClass('weaponPic');
+            img4.appendTo(clickedCell);
+            break;
+        case 'Holy Stone':
+            $(clickedCell).addClass(weapon4.class);
+            const img5 = $('<img>');
+            img5.attr('src', weaponPics[3]).addClass('weaponPic');
+            img5.appendTo(clickedCell);
+            break;
     }
 }

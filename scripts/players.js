@@ -1,10 +1,12 @@
 class Player {
-    constructor(name, health, attack, location) {
+    constructor(name, health, equippedWeapon, attack, location) {
         this.name = name;
         this.health = health;
+        this.equippedWeapon = equippedWeapon;
         this.attack = attack;
         this.location = location;
         this.placeOnBoard();
+        this.showWeapon();
     }
 
     // Randomly place players
@@ -89,6 +91,15 @@ class Player {
             $('.attack1').text(this.attack);
         } else if (player2 === activePlayer) {
             $('.attack2').text(this.attack);
+        }
+    }
+
+    showWeapon() {
+        // Get the span from the DOM to show which weapon is equipped and update it
+        if (player1 === activePlayer) {
+            $('.weaponPlayer1').text(this.equippedWeapon);
+        } else if (player2 === activePlayer) {
+            $('.weaponPlayer2').text(this.equippedWeapon);
         }
     }
 }
