@@ -27,11 +27,15 @@ class Grid {
         const $board = $(this.selector);
 
         $board.on('mouseenter', '.col1', function() {
-            $(this).addClass('hover');
+            if ($(this).hasClass('viable')) {
+                $(this).addClass(activePlayer.hoverClass);
+            }
         });
 
         $board.on('mouseleave', '.col1', function() {
-            $(this).removeClass('hover');
+            if ($(this).hasClass('viable')) {
+                $(this).removeClass(activePlayer.hoverClass);
+            }
         });
 
         $board.on('click', '.viable', move);

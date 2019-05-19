@@ -1,10 +1,11 @@
 class Player {
-    constructor(name, health, equippedWeapon, attack, location) {
+    constructor(name, health, equippedWeapon, attack, location, hoverClass) {
         this.name = name;
         this.health = health;
         this.equippedWeapon = equippedWeapon;
         this.attack = attack;
         this.location = location;
+        this.hoverClass = hoverClass;
         this.placeOnBoard();
         this.showWeapon();
     }

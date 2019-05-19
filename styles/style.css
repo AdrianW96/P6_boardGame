@@ -5,7 +5,7 @@ body {
 }
 
 #board {
-    background-color: rgb(100, 50, 90);
+    background-color: rgb(20, 10, 116);
     display: inline-block;
     border: pink 3px solid;
     padding: 6px;
@@ -62,7 +62,6 @@ body {
 .weaponPic {
     width: 50px;
     height: 50px;
-    position: relative;
 }
 
 .weaponDisplayFix {
@@ -83,14 +82,27 @@ body {
     height: 66px;
 }
 
-.hover {
-    background-color: rgba(0, 0, 200, 0.3);
+.player1hover {
+    background-image: url('/images/player1icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
 }
 
+.player2hover {
+    background-image: url('/images/player2icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+}
 .obstacleCell {
     background-color: brown;
 }
 
 .viable {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.404);
+}
+
+.activePlayerBg {
+    background-color: blue;
 }
