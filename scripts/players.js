@@ -33,7 +33,7 @@ class Player {
 
         // Function to check if the 8 spots around the current position of the player has another player
         function checkAdjacent(x, y) {
-            var $spotsAround = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
+            let $spotsAround = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
             for (let i = 0; i < $spotsAround.length; i++) {
                 if ($spotsAround[i].hasClass('player1icon') || $spotsAround[i].hasClass('player2icon')) {
                     return false;
@@ -101,6 +101,27 @@ class Player {
             $('.weaponPlayer1').text(this.equippedWeapon);
         } else if (player2 === activePlayer) {
             $('.weaponPlayer2').text(this.equippedWeapon);
+        }
+    }
+
+    checkForFight(x, y) {
+        let playerAround = checkForPlayer(x, y);
+
+        if (playerAround === true) {
+            console.log('player around!');
+        } else {
+            console.log('no player around');
+        }
+
+        function checkForPlayer(x, y) {
+            let $spotsAround = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
+            for (let i = 0; i < $spotsAround.length; i++) {
+                if ($spotsAround[i].hasClass('player1icon') || $spotsAround[i].hasClass('player2icon')) {
+                    return true;
+                } else {
+                    continue;
+                }
+            }
         }
     }
 }

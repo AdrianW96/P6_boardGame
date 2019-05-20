@@ -1,7 +1,12 @@
 body {
     text-align: center;
-    background-image: linear-gradient(rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.6)), url('/images/background.jpg');
+    background-image: linear-gradient(rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.6)), url('../images/background.jpg');
     font-family: 'PT Mono', monospace;
+}
+
+.row {
+    min-width: 1000px;
+    max-width: 100px;
 }
 
 #board {
@@ -20,7 +25,7 @@ body {
     top: 300px;
     position: absolute;
     right: 14px;
-    border: 3px solid green;
+    border: 3px solid rgb(0, 0, 161);
 }
 
 .playerImage {
@@ -29,13 +34,13 @@ body {
 }
 
 .player1icon {
-    background-image: url('/images/player1icon.png');
+    background-image: url('../images/player1icon.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .player2icon {
-    background-image: url('/images/player2icon.png');
+    background-image: url('../images/player2icon.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -46,7 +51,7 @@ body {
     background-color: black;
     top: 300px;
     position: absolute;
-    border: 3px solid green;
+    border: 3px solid rgb(0, 0, 161);
 }
 
 .player1header {
@@ -83,14 +88,14 @@ body {
 }
 
 .player1hover {
-    background-image: url('/images/player1icon.png');
+    background-image: url('../images/player1icon.png');
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;
 }
 
 .player2hover {
-    background-image: url('/images/player2icon.png');
+    background-image: url('../images/player2icon.png');
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;
@@ -104,5 +109,5 @@ body {
 }
 
 .activePlayerBg {
-    background-color: blue;
+    background-color: rgba(62, 62, 255, 0.685);
 }

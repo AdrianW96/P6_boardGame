@@ -27,6 +27,9 @@ function move() {
     $(clickedCell).addClass(activePlayer.name);
     $(clickedCell).removeClass(activePlayer.hoverClass, 'cell empty');
 
+    //Check if there's a player nearby to start a fight
+    activePlayer.checkForFight(clickedCol, clickedRow);
+
     const hasWeapon = $(clickedCell).hasClass('weaponDisplayFix');
     // Check if there's a weapon on the cell clicked
     if (hasWeapon === true) {
