@@ -86,6 +86,10 @@ function changePlayer() {
         activePlayer = player1;
         inactivePlayer = player2;
     }
+    if (gameModeChanged === true) {
+        $(`.${inactivePlayer.btnsClass}`).addClass('hidden');
+        $(`.${activePlayer.btnsClass}`).removeClass('hidden');
+    }
 }
 
 function dropOldWeapon(clickedCell) {

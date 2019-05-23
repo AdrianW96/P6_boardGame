@@ -1,13 +1,17 @@
 class Player {
-    constructor(name, health, equippedWeapon, attack, location, hoverClass) {
+    constructor(name, health, equippedWeapon, attack, location, hoverClass, btnsClass, isDefending) {
         this.name = name;
         this.health = health;
         this.equippedWeapon = equippedWeapon;
         this.attack = attack;
         this.location = location;
         this.hoverClass = hoverClass;
+        this.btnsClass = btnsClass;
+        this.isDefending = isDefending;
         this.placeOnBoard();
         this.showWeapon();
+        this.updateAttack();
+        this.updateHealth();
     }
 
     // Randomly place players
@@ -95,6 +99,14 @@ class Player {
         }
     }
 
+    updateHealth() {
+        if (player1 === activePlayer) {
+            $('.health1').text(this.health);
+        } else if (player2 === activePlayer) {
+            $('.health2').text(this.health);
+        }
+    }
+
     showWeapon() {
         // Get the span from the DOM to show which weapon is equipped and update it
         if (player1 === activePlayer) {
@@ -108,9 +120,7 @@ class Player {
         let playerAround = checkForPlayer(x, y);
 
         if (playerAround === true) {
-            console.log('player around!');
-        } else {
-            console.log('no player around');
+            fightStart();
         }
 
         function checkForPlayer(x, y) {
@@ -124,4 +134,9 @@ class Player {
             }
         }
     }
+}
+
+function updateHealth() {
+    $('.health1').text(player1.health);
+    $('.health2').text(player2.health);
 }
