@@ -33,8 +33,8 @@ let weapon4 = {
 $(document).ready(function() {
     const grid = new Grid('#board', 12, 12);
     const specialSpots = new SpecialBlocks(40, 4);
-    player1 = new Player('player1icon', 100, defaultWeapon.name, defaultWeapon.power, {}, 'player1hover', 'btnsP1', false);
-    player2 = new Player('player2icon', 100, defaultWeapon.name, defaultWeapon.power, {}, 'player2hover', 'btnsP2', false);
+    player1 = new Player('player1icon', 10, defaultWeapon.name, defaultWeapon.power, {}, 'player1hover', 'btnsP1', false);
+    player2 = new Player('player2icon', 10, defaultWeapon.name, defaultWeapon.power, {}, 'player2hover', 'btnsP2', false);
 
     activePlayer = player1;
     inactivePlayer = player2;

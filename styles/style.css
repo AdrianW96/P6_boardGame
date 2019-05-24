@@ -6,13 +6,13 @@ body {
 
 .row {
     min-width: 1000px;
-    max-width: 100px;
+    /* max-width: 100px; */
 }
 
 #board {
     background-color: rgb(20, 10, 116);
     display: inline-block;
-    border: pink 3px solid;
+    border: white 3px solid;
     padding: 6px;
     height: 810px;
     width: 810px;
@@ -24,7 +24,7 @@ body {
     background-color: black;
     top: 300px;
     position: relative;
-    right: 240px;
+    right: 180px;
     border: 3px solid rgb(0, 0, 161);
 }
 
@@ -34,6 +34,7 @@ body {
     background-color: black;
     top: 300px;
     position: relative;
+    right: 60px;
     border: 3px solid rgb(0, 0, 161);
 }
 
@@ -114,4 +115,36 @@ body {
 
 .hidden {
     display: none;
+}
+
+/* moving winner div to the middle not working if i want to animate it afterwards! (always resets) */
+
+/* .winner1 {
+    transform: translate(400px, 0);
+    transition: transform 650ms ease-in 700ms;
+}
+
+.winner2 {
+    transform: translate(-400px, 0);
+    transition: transform 650ms ease-in 700ms;
+} */
+
+.pulse {
+    animation-name: pulse_animation;
+    animation-duration: 1500ms;
+    transform-origin: 70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse_animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

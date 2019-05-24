@@ -1,4 +1,3 @@
-let gameOver = false;
 let gameModeChanged = false;
 
 function fightStart() {
@@ -9,21 +8,34 @@ function fightStart() {
         $('.mainHead').text('Fight!');
         gameModeChanged = true;
     }
-
     $('.activePlayer').removeClass('hidden');
 }
 
 function checkGameOver() {
     if (player1.health < 1) {
+        $('.health1').text('0');
+        $('.player-1').fadeOut(300);
+        // $('.player-2').addClass('winner2');
+        setTimeout(function() {
+            $('.player-2').addClass('pulse');
+        }, 300);
+        $('.mainHead').text('Player 2 won!');
+
+        // let winner move into the middle and make bigger OR modal
         $(`.${player1.btnsClass}`).css('display', 'none');
         $(`.${player2.btnsClass}`).css('display', 'none');
-        console.log('player 2 won !!!');
-        gameOver = true;
     } else if (player2.health < 1) {
+        $('.health2').text('0');
+        $('.player-2').fadeOut(300);
+        // $('.player-1').addClass('winner1');
+        setTimeout(function() {
+            $('.player-1').addClass('pulse');
+        }, 300);
+        $('.mainHead').text('Player 1 won!');
+
+        // let winner move into the middle and make bigger OR modal
         $(`.${player1.btnsClass}`).css('display', 'none');
         $(`.${player2.btnsClass}`).css('display', 'none');
-        console.log('player 1 won !!!');
-        gameOver = true;
     }
 }
 
