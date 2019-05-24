@@ -7,6 +7,7 @@ class Grid {
         this.setupEventListeners();
     }
 
+    // Create the Grid function
     createGrid() {
         const $board = $(this.selector);
         for (let row = 0; row < this.ROWS; row++) {
@@ -23,6 +24,7 @@ class Grid {
         }
     }
 
+    // Grid Eventlisteners for Hovering and Clicking
     setupEventListeners() {
         const $board = $(this.selector);
 

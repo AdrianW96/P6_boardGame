@@ -13,6 +13,7 @@ function move() {
     // Remove Player from the old Cell
     $(activePlayer.locID).removeClass(activePlayer.name);
 
+    // If there's a weapon <img> in previous location (dropped), make it visible now
     if ($(activePlayer.locID).children().length > 0) {
         $(activePlayer.locID)
             .children()
@@ -35,11 +36,11 @@ function move() {
     if (hasWeapon === true) {
         if ($(clickedCell).hasClass('weapon1')) {
             activePlayer.attack = weapon1.power;
-            // Remove old weapon picture from the cell
+            // Remove old weapon <img> from the cell
             $(clickedCell).empty();
             // Drop the old weapon on the cell
             dropOldWeapon(clickedCell);
-            // Update equippedWeapon property of activePlayer (needs to be done after dropping the old one bc it checks for equippedWeapon inside the function)
+            // Update equippedWeapon property of activePlayer
             activePlayer.equippedWeapon = weapon1.name;
             $(clickedCell).removeClass('weapon1');
         } else if ($(clickedCell).hasClass('weapon2')) {
@@ -72,12 +73,15 @@ function move() {
         activePlayer.showWeapon();
     }
 
+    // Change player after moving
     changePlayer();
     // Update new available moving options
     activePlayer.setViableMoveOptions();
+    // Indicate which player's turn it is
     $(activePlayer.locID).addClass('activePlayerBg');
 }
 
+// Change player function
 function changePlayer() {
     if (activePlayer === player1) {
         activePlayer = player2;
@@ -86,12 +90,14 @@ function changePlayer() {
         activePlayer = player1;
         inactivePlayer = player2;
     }
+    // Check if we're already in fightmode, then change which player's fight buttons are visible
     if (gameModeChanged === true) {
         $(`.${inactivePlayer.btnsClass}`).addClass('hidden');
         $(`.${activePlayer.btnsClass}`).removeClass('hidden');
     }
 }
 
+// function to drop the old weapon
 function dropOldWeapon(clickedCell) {
     switch (activePlayer.equippedWeapon) {
         case 'Rusty Sword':

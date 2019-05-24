@@ -53,10 +53,13 @@ class Player {
         const x = this.location.x;
         const y = this.location.y;
 
+        // Get 3 blocks in each direction
         var $threeTop = [$(`#${x}-${y + 1}`), $(`#${x}-${y + 2}`), $(`#${x}-${y + 3}`)];
         var $threeRight = [$(`#${x + 1}-${y}`), $(`#${x + 2}-${y}`), $(`#${x + 3}-${y}`)];
         var $threeBottom = [$(`#${x}-${y - 1}`), $(`#${x}-${y - 2}`), $(`#${x}-${y - 3}`)];
         var $threeLeft = [$(`#${x - 1}-${y}`), $(`#${x - 2}-${y}`), $(`#${x - 3}-${y}`)];
+
+        // loop through each direction and check if there's an obstacle, yes => don't check further
 
         for (var i = 0; i < $threeTop.length; i++) {
             if ($threeTop[i].hasClass('obstacleCell') || $threeTop[i].hasClass(inactivePlayer.name)) {
@@ -91,6 +94,7 @@ class Player {
         }
     }
 
+    // function to show current attack in UI
     updateAttack() {
         if (player1 === activePlayer) {
             $('.attack1').text(this.attack);
@@ -99,6 +103,7 @@ class Player {
         }
     }
 
+    // function to show current health in UI
     updateHealth() {
         if (player1 === activePlayer) {
             $('.health1').text(this.health);
@@ -107,8 +112,8 @@ class Player {
         }
     }
 
+    // function to show currently equipped weapon in UI
     showWeapon() {
-        // Get the span from the DOM to show which weapon is equipped and update it
         if (player1 === activePlayer) {
             $('.weaponPlayer1').text(this.equippedWeapon);
         } else if (player2 === activePlayer) {
@@ -116,6 +121,7 @@ class Player {
         }
     }
 
+    // function to check if there's a player nearby to start a fight
     checkForFight(x, y) {
         let playerAround = checkForPlayer(x, y);
 
@@ -134,9 +140,4 @@ class Player {
             }
         }
     }
-}
-
-function updateHealth() {
-    $('.health1').text(player1.health);
-    $('.health2').text(player2.health);
 }

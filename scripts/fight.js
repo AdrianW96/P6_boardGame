@@ -1,16 +1,14 @@
-let gameModeChanged = false;
-
 function fightStart() {
     // Hide Board
-    if (gameModeChanged === false) {
-        $('#board').fadeOut(600);
-        setTimeout(moveTogether(), 1000);
-        $('.mainHead').text('Fight!');
-        gameModeChanged = true;
-    }
-    $('.activePlayer').removeClass('hidden');
+    $('#board').fadeOut(600);
+    // Set timeout not working as expected?
+    setTimeout(moveTogether(), 2000);
+    $('.mainHead').text('Fight!');
+    // Change gamemode variable so that buttons also appear when changePlayer() is called
+    gameModeChanged = true;
 }
 
+// Check if a player is below 0 or less health to end game
 function checkGameOver() {
     if (player1.health < 1) {
         $('.health1').text('0');
@@ -21,7 +19,6 @@ function checkGameOver() {
         }, 300);
         $('.mainHead').text('Player 2 won!');
 
-        // let winner move into the middle and make bigger OR modal
         $(`.${player1.btnsClass}`).css('display', 'none');
         $(`.${player2.btnsClass}`).css('display', 'none');
     } else if (player2.health < 1) {
