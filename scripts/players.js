@@ -1,3 +1,5 @@
+// Player Class with it's methods + properties
+
 class Player {
     constructor(name, health, equippedWeapon, attack, location, hoverClass, btnsClass, isDefending) {
         this.name = name;
@@ -48,6 +50,7 @@ class Player {
         }
     }
 
+    // Show where it's possible to move
     setViableMoveOptions() {
         // Store current position for faster access
         const x = this.location.x;
@@ -129,6 +132,7 @@ class Player {
             fightStart();
         }
 
+        // Helper function to check if there's a player nearby
         function checkForPlayer(x, y) {
             let $spotsAround = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
             for (let i = 0; i < $spotsAround.length; i++) {

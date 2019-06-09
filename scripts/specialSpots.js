@@ -1,3 +1,5 @@
+// Place obstacles and weapons on board
+
 let weapons = ['weapon1', 'weapon2', 'weapon3', 'weapon4'];
 let weaponPics = ['images/cheese.png', 'images/dragonglass.png', 'images/knowledge.png', 'images/stoneOfWisdom.png'];
 class SpecialBlocks {
@@ -22,7 +24,7 @@ class SpecialBlocks {
             allBlocks.splice(randomNum, 1);
         }
 
-        // Update empty cells variable after obstacles have been generated
+        // Update empty cells variable after obstacles have been generated (i.e. so that no weapon spawns on obstacleCell)
         allBlocks = $('.cell');
 
         // Generate weapons

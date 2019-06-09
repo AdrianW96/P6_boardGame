@@ -1,3 +1,5 @@
+// Initialize game + eventListeners
+
 let activePlayer;
 let inactivePlayer;
 let player1;
@@ -16,6 +18,7 @@ let weapon1 = {
     power: 20,
     class: 'weapon1'
 };
+
 let weapon2 = {
     name: 'Dagger',
     power: 15,
@@ -34,18 +37,18 @@ let weapon4 = {
 
 $(document).ready(function() {
     // Create Grid, Obstacles and Players
-    const grid = new Grid('#board', 12, 12);
-    const specialSpots = new SpecialBlocks(30, 4);
+    new Grid('#board', 12, 12);
+    new SpecialBlocks(30, 4);
     player1 = new Player('player1icon', 100, defaultWeapon.name, defaultWeapon.power, {}, 'player1hover', 'btnsP1', false);
     player2 = new Player('player2icon', 100, defaultWeapon.name, defaultWeapon.power, {}, 'player2hover', 'btnsP2', false);
 
     activePlayer = player1;
     inactivePlayer = player2;
 
-    // Add class to show img where the player is located
+    // Add class to show background of active player
     $(activePlayer.locID).addClass('activePlayerBg');
 
-    // Initialize first viable moving options
+    // Initialize viable moving options
     activePlayer.setViableMoveOptions();
 
     // Hide fighting buttons

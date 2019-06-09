@@ -24,7 +24,8 @@ function move() {
     activePlayer.locID = `#${clickedCol}-${clickedRow}`;
     activePlayer.location.x = clickedCol;
     activePlayer.location.y = clickedRow;
-    // Add Player to new Cell
+
+    // Add Player to the new Cell
     $(clickedCell).addClass(activePlayer.name);
     $(clickedCell).removeClass(activePlayer.hoverClass, 'cell empty');
 
@@ -32,7 +33,7 @@ function move() {
     activePlayer.checkForFight(clickedCol, clickedRow);
 
     const hasWeapon = $(clickedCell).hasClass('weaponDisplayFix');
-    // Check if there's a weapon on the cell clicked
+    // Check if there's a weapon on the cell clicked, if yes -> drop old weapon and pick up new one
     if (hasWeapon === true) {
         if ($(clickedCell).hasClass('weapon1')) {
             activePlayer.attack = weapon1.power;
@@ -75,7 +76,7 @@ function move() {
 
     // Change player after moving
     changePlayer();
-    // Update new available moving options
+    // Update new available moving options for next player
     activePlayer.setViableMoveOptions();
     // Indicate which player's turn it is
     $(activePlayer.locID).addClass('activePlayerBg');
@@ -90,7 +91,7 @@ function changePlayer() {
         activePlayer = player1;
         inactivePlayer = player2;
     }
-    // Check if we're already in fightmode, then change which player's fight buttons are visible
+    // Check if we're already in fightmode, if yes -> change which player's fight buttons are visible
     if (gameModeChanged === true) {
         $(`.${inactivePlayer.btnsClass}`).addClass('hidden');
         $(`.${activePlayer.btnsClass}`).removeClass('hidden');
