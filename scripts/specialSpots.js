@@ -27,7 +27,7 @@ class SpecialBlocks {
         // Update empty cells variable after obstacles have been generated (i.e. so that no weapon spawns on obstacleCell)
         allBlocks = $('.cell');
 
-        // Generate weapons
+        // Place weapons randomly
         for (let i = 0; i < this.numOfWeapons; i++) {
             const randomNum = Math.floor(Math.random() * allBlocks.length);
             const currentCell = allBlocks.eq(randomNum);

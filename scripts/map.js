@@ -1,3 +1,5 @@
+// Game Board Class & board eventListeners
+
 class Grid {
     constructor(selector, rows, cols) {
         this.selector = selector;

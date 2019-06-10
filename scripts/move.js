@@ -1,4 +1,4 @@
-// called when activePlayer clicks on a viable field
+// Called when activePlayer clicks on a viable field
 function move() {
     // Remove bg to show who's turn it is
     $(activePlayer.locID).removeClass('activePlayerBg');

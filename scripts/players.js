@@ -1,4 +1,4 @@
-// Player Class with it's methods + properties
+// Player Class with it's methods & properties
 
 class Player {
     constructor(name, health, equippedWeapon, attack, location, hoverClass, btnsClass, isDefending) {
@@ -37,7 +37,7 @@ class Player {
         this.location.y = $randomFreeCell.data('row');
         this.locID = `#${this.location.x}-${this.location.y}`;
 
-        // Function to check if the 8 spots around the current position of the player has another player
+        // Helper Function to check if the 8 spots around the current position of the player has another player
         function checkAdjacent(x, y) {
             let $spotsAround = [$(`#${x + 1}-${y - 1}`), $(`#${x}-${y - 1}`), $(`#${x - 1}-${y - 1}`), $(`#${x - 1}-${y}`), $(`#${x - 1}-${y + 1}`), $(`#${x}-${y + 1}`), $(`#${x + 1}-${y}`), $(`#${x + 1}-${y + 1}`)];
             for (let i = 0; i < $spotsAround.length; i++) {
